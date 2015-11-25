@@ -18,7 +18,11 @@ def lambda_handler(event, context):
         {
           'Name': 'state',
           'Values': [ 'available', 'deregistered' ],
-        }
+        },
+        {
+          'Name': 'tag:release',
+          'Values': [ 'stable' ],
+        },
       ]
     )['Images']
     
@@ -31,7 +35,11 @@ def lambda_handler(event, context):
         {
           'Name': 'state',
           'Values': [ 'available', 'deregistered' ],
-        }
+        },
+        {
+          'Name': 'tag:release',
+          'Values': [ 'build' ],
+        },
       ]
     )['Images']
 
