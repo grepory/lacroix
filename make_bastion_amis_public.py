@@ -26,7 +26,7 @@ def lambda_handler(event, context):
       ]
     )['Images']
     
-    images = sorted(images, key=lambda k: k['CreationDate'], reverse=True)
+    images = sorted(images, key=lambda k: k['CreationDate'], reverse=True)[0:10]
 
     for d in images:
       image_id = d['ImageId']

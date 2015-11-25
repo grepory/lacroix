@@ -15,6 +15,4 @@ deployment:
     branch: master
     owner: opsee
     commands:
-      - zip lacroix.zip *.py
-      - (cd .env && zip -r ../lacroix.zip lib/python2.7/site-packages)
-      - aws s3 cp lacroix.zip s3://opsee-releases/python/lacroix/lacroix.zip
+      - ./publish.bash
