@@ -1,0 +1,19 @@
+notify:
+  webhooks:
+    - url: https://hooks.slack.com/services/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
+dependencies:
+  override:
+    - sudo pip install awscli
+test:
+  override:
+    - virtualenv --no-site-packages --distribute .env
+    - source .env/bin/activate
+    - pip install -r requirements.txt
+    - ./run_tests.bash
+deployment:
+  ami:
+    branch: master
+    owner: opsee
+    commands:
+      - zip -r lacroix.zip *.py .env/lib/python2.7/site-packages
+      - aws s3 cp lacroix.zip s3://opsee-releases/python/lacroix/lacroix.zip
