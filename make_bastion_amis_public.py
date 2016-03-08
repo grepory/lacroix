@@ -23,6 +23,10 @@ def lambda_handler(event, context):
           'Name': 'is-public',
           'Values': [ 'false' ],
         },
+        {
+          'Name': 'tag:release',
+          'Values': ['stable'],
+        },
       ]
     )['Images']
     
